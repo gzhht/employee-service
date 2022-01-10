@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-docker images -q -a | xargs docker inspect --format='{{.Id}}{{range $rt := .RepoTags}} {{$rt}} {{end}}'|grep -v ':'
+set -x
+docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")
+set +x
