@@ -69,6 +69,7 @@ stage('Deploy to k8s') {
         withEnv([
             'SERVICE=employee',
             'NAMESPACE=default'
+            'TAG=1.1'
         ]){
             /* Apply all manifest files */
             sh "pwd"
