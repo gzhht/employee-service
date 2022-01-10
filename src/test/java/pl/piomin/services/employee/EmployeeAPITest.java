@@ -9,9 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import pl.piomin.services.employee.model.Employee;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@EnableKubernetesMockClient(crud = true)
-@TestMethodOrder(MethodOrderer.Alphanumeric.class)
+// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+// @EnableKubernetesMockClient(crud = true)
+// @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class EmployeeAPITest {
 
     static KubernetesClient client;
@@ -39,7 +39,7 @@ class EmployeeAPITest {
             .done();
     }
 
-    @Test
+    // @Test
     void addEmployeeTest() {
         Employee employee = new Employee("1", "1", "Test", 30, "test");
         employee = restTemplate.postForObject("/", employee, Employee.class);
@@ -47,7 +47,7 @@ class EmployeeAPITest {
         Assertions.assertNotNull(employee.getId());
     }
 
-    @Test
+    // @Test
     void addAndThenFindEmployeeByIdTest() {
         Employee employee = new Employee("1", "2", "Test2", 20, "test2");
         employee = restTemplate.postForObject("/", employee, Employee.class);
@@ -59,21 +59,21 @@ class EmployeeAPITest {
         Assertions.assertNotNull(employee.getId());
     }
 
-    @Test
+    // @Test
     void findAllEmployeesTest() {
         Employee[] employees =
             restTemplate.getForObject("/", Employee[].class);
         Assertions.assertEquals(2, employees.length);
     }
 
-    @Test
+    // @Test
     void findEmployeesByDepartmentTest() {
         Employee[] employees =
             restTemplate.getForObject("/department/1", Employee[].class);
         Assertions.assertEquals(1, employees.length);
     }
 
-    @Test
+    // @Test
     void findEmployeesByOrganizationTest() {
         Employee[] employees =
             restTemplate.getForObject("/organization/1", Employee[].class);
