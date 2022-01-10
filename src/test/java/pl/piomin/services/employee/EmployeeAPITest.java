@@ -19,7 +19,7 @@ class EmployeeAPITest {
     @Autowired
     TestRestTemplate restTemplate;
 
-    @BeforeAll
+    // @BeforeAll
     static void init() {
         System.setProperty(Config.KUBERNETES_MASTER_SYSTEM_PROPERTY,
             client.getConfiguration().getMasterUrl());
@@ -38,6 +38,13 @@ class EmployeeAPITest {
                 "spring.data.mongodb.uri=mongodb://localhost:27017/test")
             .done();
     }
+
+    @Test
+    void test_for_report() {
+        Employee employee = new Employee("1", "1", "Test", 30, "test");
+        Assertions.assertNotNull(employee);
+    }
+
 
     // @Test
     void addEmployeeTest() {
