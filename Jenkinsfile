@@ -37,9 +37,9 @@ pipeline {
             }
         }
 
-        stage('Deliver') {
+        stage('Validate the Jar Version') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                sh './ci-build/deliver.sh'
             }
             post {
                 always {
