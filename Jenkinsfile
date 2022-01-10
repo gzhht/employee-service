@@ -58,7 +58,7 @@ stage('Build image') {
         ]){
         /* Build the docker image */
             sh "echo clear <none docker images>"
-            sh 'docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")`
+            sh 'docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")'
             sh "docker build --no-cache -t ${SERVICE}:${TAG} ."
         }
     }
