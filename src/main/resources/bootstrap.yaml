@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    kubernetes:
+      enabled: false
+    #  client:
+    #    namespace: default
+#      discovery:
+#        enabled: false

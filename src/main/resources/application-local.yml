@@ -1,14 +1,20 @@
+server:
+  port: 8090
+
 spring:
   application:
     name: employee
   data:
     mongodb:
-      uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongodb.default/${MONGO_DATABASE}
+      uri: mongodb://admin:admin@127.0.0.1:27017/local-test
   output.ansi.enabled: ALWAYS
   cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
     kubernetes:
-     client:
-       namespace: default
+      discovery:
+        enabled: false
 
 logging:
   pattern: 

@@ -21,22 +21,22 @@ class EmployeeAPITest {
 
     // @BeforeAll
     static void init() {
-        System.setProperty(Config.KUBERNETES_MASTER_SYSTEM_PROPERTY,
-            client.getConfiguration().getMasterUrl());
-        System.setProperty(Config.KUBERNETES_TRUST_CERT_SYSTEM_PROPERTY,
-            "true");
-        System.setProperty(
-            Config.KUBERNETES_AUTH_TRYKUBECONFIG_SYSTEM_PROPERTY, "false");
-        System.setProperty(
-            Config.KUBERNETES_AUTH_TRYSERVICEACCOUNT_SYSTEM_PROPERTY, "false");
-        System.setProperty(Config.KUBERNETES_HTTP2_DISABLE, "true");
-        System.setProperty(Config.KUBERNETES_NAMESPACE_SYSTEM_PROPERTY,
-            "default");
-        client.configMaps().inNamespace("default").createNew()
-            .withNewMetadata().withName("employee").endMetadata()
-            .addToData("application.properties",
-                "spring.data.mongodb.uri=mongodb://localhost:27017/test")
-            .done();
+        // System.setProperty(Config.KUBERNETES_MASTER_SYSTEM_PROPERTY,
+        //     client.getConfiguration().getMasterUrl());
+        // System.setProperty(Config.KUBERNETES_TRUST_CERT_SYSTEM_PROPERTY,
+        //     "true");
+        // System.setProperty(
+        //     Config.KUBERNETES_AUTH_TRYKUBECONFIG_SYSTEM_PROPERTY, "false");
+        // System.setProperty(
+        //     Config.KUBERNETES_AUTH_TRYSERVICEACCOUNT_SYSTEM_PROPERTY, "false");
+        // System.setProperty(Config.KUBERNETES_HTTP2_DISABLE, "true");
+        // System.setProperty(Config.KUBERNETES_NAMESPACE_SYSTEM_PROPERTY,
+        //     "default");
+        // client.configMaps().inNamespace("default").createNew()
+        //     .withNewMetadata().withName("employee").endMetadata()
+        //     .addToData("application.properties",
+        //         "spring.data.mongodb.uri=mongodb://localhost:27017/test")
+        //     .done();
     }
 
     @Test
