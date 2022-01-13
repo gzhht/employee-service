@@ -47,25 +47,6 @@ pipeline {
                 }
             }
         }
-
-        stage("Env deploy") {
-            when {
-                expression { params.region == 'admin' || params.region == 'gateway' || params.region == 'mongodb'}
-            }
-            steps {
-                script {
-                    if(params.region == 'admin') {
-                        input message: "Proceed or Abort", submitter: "env admin",
-                        echo 'params.region is deploying'
-                    } 
-
-                    if(params.region == 'gateway') {
-                        input message: "Proceed or Abort", submitter: "env admin",
-                        echo 'params.region is deploying'
-                    } 
-                }
-            }
-        }
     }
 }
 
