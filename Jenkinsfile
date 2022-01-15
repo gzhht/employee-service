@@ -68,7 +68,7 @@ stage('Deploy to k8s dev') {
     node {
         withEnv([
             'SERVICE=employee',
-            'NAMESPACE=default',
+            'NAMESPACE=dev',
             'TAG=1.1'
         ]){
             /* Apply all manifest files */
