@@ -3,12 +3,12 @@ spring:
     name: employee
   data:
     mongodb:
-      uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongodb.default/${MONGO_DATABASE}
+      uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongodb.${NAMESPACE}/${MONGO_DATABASE}
   output.ansi.enabled: ALWAYS
   cloud:
     kubernetes:
      client:
-       namespace: default
+       namespace: ${NAMESPACE}
 
 logging:
   pattern: 
